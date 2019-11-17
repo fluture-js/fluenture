@@ -1,0 +1,44 @@
+{
+  "name": "fluenture",
+  "version": "0.0.0",
+  "description": "Bring back Fluture's fluent method API",
+  "type": "module",
+  "main": "index.cjs",
+  "module": "index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "codecov": "codecov",
+    "doctest": "sanctuary-doctest",
+    "lint": "sanctuary-lint",
+    "release": "sanctuary-release",
+    "test": "npm run lint && sanctuary-test && npm run doctest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fluture-js/fluenture.git"
+  },
+  "files": [
+    "/index.cjs",
+    "/index.js",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
+  "author": "Aldwin Vlasblom <aldwin@avaq.it> (https://github.com/Avaq)",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "fluture": ">=12.0.0-beta.4 <13.0.0"
+  },
+  "devDependencies": {
+    "c8": "^5.0.4",
+    "codecov": "^3.2.0",
+    "fluture": "^12.0.0",
+    "jsverify": "^0.8.4",
+    "oletus": "^2.0.0",
+    "rollup": "^1.21.4",
+    "sanctuary-scripts": "^3.1.1",
+    "sanctuary-show": "^1.0.0",
+    "sanctuary-type-identifiers": "^2.0.1"
+  }
+}
