@@ -1,6 +1,6 @@
 {
   "name": "fluenture",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Bring back Fluture's fluent method API",
   "type": "module",
   "main": "index.cjs",
