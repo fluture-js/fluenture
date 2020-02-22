@@ -20,6 +20,7 @@ import {
   alt,
   and,
   ap,
+  bichain,
   bimap,
   both,
   cache,
@@ -157,6 +158,11 @@ Fluenture.prototype.and = unaryDispatcher (fluent, and);
 //.
 //. Fluent [`ap`](https://github.com/fluture-js/Fluture#ap).
 Fluenture.prototype.ap = unaryDispatcher (fluent, ap);
+
+//# bichain :: Fluenture a b ~> (a -> Fluenture a c, b -> Fluenture a c) -> Fluenture a c
+//.
+//. Fluent [`bichain`](https://github.com/fluture-js/Fluture#bichain).
+Fluenture.prototype.bichain = binaryDispatcher (fluent, bichain);
 
 //# bimap :: Fluenture a b ~> (a -> c, b -> d) -> Fluenture c d
 //.

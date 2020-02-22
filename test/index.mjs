@@ -54,7 +54,7 @@ function testInvalidContext(name) {
   ));
 });
 
-['bimap', 'coalesce'] .forEach (name => {
+['bichain', 'bimap', 'coalesce'] .forEach (name => {
   testInvalidContext (name);
   prop (`fluent (m) .${name} (f, g) = ${name} (f) (g) (m)`) ((m) => (
     equivalence (fluent (m) [name] (f, g)) (fluture [name] (f) (g) (m))
