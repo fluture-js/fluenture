@@ -34,6 +34,7 @@ import {
   lastly,
   map,
   mapRej,
+  pap,
   promise,
   race,
   swap,
@@ -208,6 +209,11 @@ Fluenture.prototype.map = unaryDispatcher (fluent, map);
 //.
 //. Fluent [`mapRej`](https://github.com/fluture-js/Fluture#mapRej).
 Fluenture.prototype.mapRej = unaryDispatcher (fluent, mapRej);
+
+//# pap :: Fluenture a b ~> Fluenture a (b -> c) -> Fluenture a c
+//.
+//. Fluent [`pap`](https://github.com/fluture-js/Fluture/#pap).
+Fluenture.prototype.pap = unaryDispatcher (fluent, pap);
 
 //# race :: Fluenture a b ~> Future a b -> Fluenture a b
 //.

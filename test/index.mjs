@@ -33,7 +33,7 @@ function testInvalidContext(name) {
   });
 }
 
-['alt', 'and', 'ap', 'lastly', 'race'] .forEach (name => {
+['alt', 'and', 'ap', 'lastly', 'pap', 'race'] .forEach (name => {
   testInvalidContext (name);
   prop (`fluent (m) .${name} (o) = ${name} (o) (m)`) ((m, o) => (
     equivalence (fluent (m) [name] (o)) (fluture [name] (o) (m))
