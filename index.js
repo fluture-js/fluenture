@@ -20,6 +20,7 @@ import {
   alt,
   and,
   ap,
+  bichain,
   bimap,
   both,
   cache,
@@ -33,6 +34,7 @@ import {
   lastly,
   map,
   mapRej,
+  pap,
   promise,
   race,
   swap,
@@ -158,6 +160,11 @@ Fluenture.prototype.and = unaryDispatcher (fluent, and);
 //. Fluent [`ap`](https://github.com/fluture-js/Fluture#ap).
 Fluenture.prototype.ap = unaryDispatcher (fluent, ap);
 
+//# bichain :: Fluenture a b ~> (a -> Fluenture a c, b -> Fluenture a c) -> Fluenture a c
+//.
+//. Fluent [`bichain`](https://github.com/fluture-js/Fluture#bichain).
+Fluenture.prototype.bichain = binaryDispatcher (fluent, bichain);
+
 //# bimap :: Fluenture a b ~> (a -> c, b -> d) -> Fluenture c d
 //.
 //. Fluent [`bimap`](https://github.com/fluture-js/Fluture#bimap).
@@ -202,6 +209,11 @@ Fluenture.prototype.map = unaryDispatcher (fluent, map);
 //.
 //. Fluent [`mapRej`](https://github.com/fluture-js/Fluture#mapRej).
 Fluenture.prototype.mapRej = unaryDispatcher (fluent, mapRej);
+
+//# pap :: Fluenture a b ~> Fluenture a (b -> c) -> Fluenture a c
+//.
+//. Fluent [`pap`](https://github.com/fluture-js/Fluture/#pap).
+Fluenture.prototype.pap = unaryDispatcher (fluent, pap);
 
 //# race :: Fluenture a b ~> Future a b -> Fluenture a b
 //.
