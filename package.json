@@ -41,8 +41,6 @@
     "jsverify": "^0.8.4",
     "oletus": "^3.0.0",
     "rollup": "^2.0.0",
-    "sanctuary-scripts": "^4.0.0",
-    "sanctuary-show": "^1.0.0",
-    "sanctuary-type-identifiers": "^2.0.1"
+    "sanctuary-scripts": "^4.0.0"
   }
 }
