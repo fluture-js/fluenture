@@ -89,7 +89,16 @@ prop ('fluent (m) .pipe (f) = fluent (f (fluent (m))) where f :: Future -> Futur
 testInvalidContext ('promise');
 
 prop ('fluent (m) .promise () = promise (m)') ((m) => (
-  equality (fluent (m) .promise ()) (fluture.promise (m))
+  fluent (m) .promise () .then (
+    a => fluture.promise (m) .then (
+      b => equality (a) (b),
+      _ => false
+    ),
+    a => fluture.promise (m) .then (
+      _ => false,
+      b => equality (a) (b)
+    )
+  )
 ));
 
 testInvalidContext ('done');
