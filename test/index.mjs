@@ -40,6 +40,12 @@ function testInvalidContext(name) {
   ));
 });
 
+['fantasy-land/alt', 'fantasy-land/ap', 'fantasy-land/chain', 'fantasy-land/map'] .forEach (name => {
+  prop (`fluent (m) ['${name}'] (o) = (m) ['${name}'] (o)`) ((m, o) => (
+    equivalence (fluent (m) [name] (o)) ((m) [name] (o))
+  ));
+});
+
 ['cache', 'swap'] .forEach (name => {
   testInvalidContext (name);
   prop (`fluent (m) .${name} () = ${name} (m)`) ((m) => (
@@ -51,6 +57,12 @@ function testInvalidContext(name) {
   testInvalidContext (name);
   prop (`fluent (m) .${name} (f) = ${name} (f) (m)`) ((m) => (
     equivalence (fluent (m) [name] (f)) (fluture [name] (f) (m))
+  ));
+});
+
+['fantasy-land/bimap'] .forEach (name => {
+  prop (`fluent (m) ['${name}'] (f, g) = (m) ['${name}'] (f, g)`) ((m) => (
+    equivalence (fluent (m) [name] (f, g)) ((m) [name] (f, g))
   ));
 });
 

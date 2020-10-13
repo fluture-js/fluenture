@@ -49,6 +49,8 @@ function check(name, context) {
   }
 }
 
+function fl(n) { return ['fantasy-land', n].join ('/'); }
+
 function identity(x) {
   return x;
 }
@@ -78,6 +80,18 @@ function ternaryDispatcher(wrap, f) {
   return function ternaryFluentureMethod(x, y, z) {
     check (f.name, this);
     return wrap (f (x) (y) (z) (this));
+  };
+}
+
+function fantasyLandUnaryDispatcher(flName) {
+  return function unaryFluentureMethod(x) {
+    return fluent (Future.prototype[flName].call (this, x));
+  };
+}
+
+function fantasyLandBinaryDispatcher(flName) {
+  return function binaryFluentureMethod(x, y) {
+    return fluent (Future.prototype[flName].call (this, x, y));
   };
 }
 
@@ -149,6 +163,7 @@ Fluenture.prototype.pipe = function pipe(f) {
 //.
 //. Fluent [`alt`](https://github.com/fluture-js/Fluture#alt).
 Fluenture.prototype.alt = unaryDispatcher (fluent, alt);
+Fluenture.prototype[fl ('alt')] = fantasyLandUnaryDispatcher (fl ('alt'));
 
 //# and :: Fluenture a b ~> Future a b -> Fluenture a b
 //.
@@ -159,6 +174,7 @@ Fluenture.prototype.and = unaryDispatcher (fluent, and);
 //.
 //. Fluent [`ap`](https://github.com/fluture-js/Fluture#ap).
 Fluenture.prototype.ap = unaryDispatcher (fluent, ap);
+Fluenture.prototype[fl ('ap')] = fantasyLandUnaryDispatcher (fl ('ap'));
 
 //# bichain :: Fluenture a b ~> (a -> Fluenture a c, b -> Fluenture a c) -> Fluenture a c
 //.
@@ -169,6 +185,7 @@ Fluenture.prototype.bichain = binaryDispatcher (fluent, bichain);
 //.
 //. Fluent [`bimap`](https://github.com/fluture-js/Fluture#bimap).
 Fluenture.prototype.bimap = binaryDispatcher (fluent, bimap);
+Fluenture.prototype[fl ('bimap')] = fantasyLandBinaryDispatcher (fl ('bimap'));
 
 //# both :: Fluenture a b ~> Future a c -> Fluenture a (Pair b c)
 //.
@@ -184,6 +201,7 @@ Fluenture.prototype.cache = nullaryDispatcher (fluent, cache);
 //.
 //. Fluent [`chain`](https://github.com/fluture-js/Fluture#chain).
 Fluenture.prototype.chain = unaryDispatcher (fluent, chain);
+Fluenture.prototype[fl ('chain')] = fantasyLandUnaryDispatcher (fl ('chain'));
 
 //# chainRej :: Fluenture a b ~> (a -> Fluenture c b) -> Fluenture c b
 //.
@@ -204,6 +222,7 @@ Fluenture.prototype.lastly = unaryDispatcher (fluent, lastly);
 //.
 //. Fluent [`map`](https://github.com/fluture-js/Fluture#map).
 Fluenture.prototype.map = unaryDispatcher (fluent, map);
+Fluenture.prototype[fl ('map')] = fantasyLandUnaryDispatcher (fl ('map'));
 
 //# mapRej :: Fluenture a b ~> (a -> c) -> Fluenture c b
 //.
