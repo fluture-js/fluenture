@@ -1,6 +1,6 @@
 /* eslint no-whitespace-before-property:0 */
 
-import * as fluture from 'fluture/index.js';
+import * as fluture from 'fluture';
 import {anyFuture} from 'fluture/test/arbitraries.js';
 import {equality, equivalence} from 'fluture/test/assertions.js';
 import test from 'oletus';
