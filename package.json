@@ -1,6 +1,6 @@
 {
   "name": "fluenture",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Bring back Fluture's fluent method API",
   "keywords": [
     "fluent",
